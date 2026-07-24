@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Spesa{% endblock %}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: system-ui;
+        }
+
+        .container-main {
+            margin-top: 50px;
+            max-width: 900px;
+        }
+
+        .card-minimal {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+
+        .btn-primary {
+            background: #111;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar bg-white border-bottom">
+    <div class="container">
+        <a class="navbar-brand" href="/">Spesa</a>
+
+        <div>
+            {% block nav_item %}{% endblock %}
+        </div>
+    </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>
