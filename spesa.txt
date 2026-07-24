@@ -1,0 +1,5 @@
+personal expenditure project 
+tech stack 
+frontend -html css js
+backend - postgre flask 
+deployment- render

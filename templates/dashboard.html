@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block nav_item %}
+<a href="/logout" class="btn btn-sm btn-outline-dark">Logout</a>
+{% endblock %}
+
+{% block content %}
+<div class="container container-main">
+
+    <h4 class="mb-4">Dashboard</h4>
+
+    <div class="card-minimal mb-4">
+        <form method="POST">
+            <div class="row g-2">
+                <div class="col-md-5">
+                    <input name="expense" class="form-control" placeholder="Expense" required>
+                </div>
+                <div class="col-md-3">
+                    <input name="amount" type="number" class="form-control" placeholder="Amount" required>
+                </div>
+                <div class="col-md-3">
+                    <input name="date" type="date" class="form-control" required>
+                </div>
+                <div class="col-md-1 d-grid">
+                    <button class="btn btn-primary">+</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="card-minimal">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Expense</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if expenses %}
+                    {% for e in expenses %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ e.expenseName }}</td>
+                        <td>₹{{ e.amount }}</td>
+                        <td>{{ e.date }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">No data</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}
